@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/Lishakuinkel/Giftlab/issues"
   },
-  "homepage": "https://github.com/Lishakuinkel/Giftlab#readme"
+  "homepage": "https://github.com/Lishakuinkel/Giftlab#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
 }
