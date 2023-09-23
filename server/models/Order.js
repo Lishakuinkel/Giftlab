@@ -11,8 +11,18 @@ const orderSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'Product'
     }
-  ]
-});
+  ],
+  total_price: {
+    type: Number,
+    required: true,
+    default: 0
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
+}
+);
 
 const Order = mongoose.model('Order', orderSchema);
 
