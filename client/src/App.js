@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Cart from './pages/cart/Cart';
 import Login from './pages/login/login';
 import Signup from './pages/signup/signup';
+import Logout from './pages/Logout/Logout';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path='/signup' element={<Signup />} />
                     
             <Route path='/cart' element={<Cart />} />
+            <Route path='/logout' element={<Logout />} />
             
           </Routes>
         </Router>
