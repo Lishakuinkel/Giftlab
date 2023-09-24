@@ -1,9 +1,19 @@
-import React from 'react'
+import React from 'react';
+import Header from '../../components/Header';
+import Signup from "../../components/Signup";
 
 const signup = () => {
-  return (
-    <div>signup</div>
-  )
+    return (
+        <>
+            <Header
+                heading="Signup to create an account"
+                paragraph="Already have an account? "
+                linkName="Login"
+                linkUrl="/login"
+            />
+            <Signup />
+        </>
+    )
 }
 
 export default signup
