@@ -5,7 +5,19 @@ const { signToken } = require('../utils/auth');
 const resolvers ={
 
     Query: {
+      categories: async () => {
+        return await Category.find();
+      },
+      
+      products: async (parent, { category, name }) => {
+        const params.catgeory = category;
+      }
 
+      if (name) {
+        params.name = {
+          $regex: name
+        };
+      }
 },
 
     Mutation: {
