@@ -29,7 +29,7 @@ type Product {
   category: Category
 }
 
-input productInput {
+input ProductInput {
   _id: ID
   purchaseQuantity: Int
   name: String
