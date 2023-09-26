@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink} from '@apollo/client';
+import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink} from '@apollo/client';
 import Navbar from './components/Navbar';
 import Cart from './pages/cart/Cart';
 import Login from './pages/login/login';
@@ -38,6 +39,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
     <div>
       
       <div>
@@ -52,10 +54,11 @@ function App() {
               <Route path='/cart' element={<Cart />} />
               {/* <Route path='/logout' element={<Logout />} /> */}
             
-            </Routes>
-          </Router>
-        </div>
+          </Routes>
+        </Router>
       </div>
+
+    </div>
     </ApolloProvider>
   );
 }
