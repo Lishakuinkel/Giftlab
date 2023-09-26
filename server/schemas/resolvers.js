@@ -2,7 +2,7 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, Product, Category, Order } = require('../models');
 const { signToken } = require('../utils/auth');
 
-const resolvers ={
+const resolvers = {
 
     Query: {
       categories: async () => {
@@ -10,15 +10,53 @@ const resolvers ={
       },
       
       products: async (parent, { category, name }) => {
-        const params.catgeory = category;
-      }
+        const params = {};
 
-      if (name) {
-        params.name = {
-          $regex: name
-        };
-      }
-},
+        if (category) {
+          params.category = category;
+        }
+
+        if (name) {
+          params.name = {
+            $regex: name
+          };
+        }
+
+        return await Product.find(params).populate('category');
+      },
+      product: async (parent, { _id }) => {
+        return await Product.findbyId(_id).populate('category');
+      },
+      user: async (parent, args, context) => {
+        if (context.user) {
+          const user = await User.findbyId(context.user._id)
+          .populate({
+            path: 'orders.products',
+            populate: 'category'
+          });
+
+          user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+
+          return user;
+        }
+
+        throw new AuthenticationError('Not logged in');
+      },
+      order: async (parent, { _id }, context) => {
+        if (context.user) {
+          const user = await User.findbyId(context.user._id)
+          .populate({
+            path: 'orders.products',
+            populate: 'category'
+          });
+
+          return user.orders.id(_id);
+        }
+
+        throw new AuthenticationError('Not logged in');
+      },
+
+  },
 
     Mutation: {
         addUser: async (parent, args) => {
