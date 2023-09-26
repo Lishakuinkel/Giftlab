@@ -81,7 +81,7 @@ This application is powered by Webpack (HTML-Webpack-Plugin, Babel, and CSS Load
 
 ## Contribution Guidelines
 
-GiflLab app was created in collaboration Aleena Brinkerhoff, Lisha Kuinkel, Suzy Khan and Anna Gallagher for the University if Utah EDX Bootcamp Final Project.
+GiflLab app was created in collaboration Aleena Brinkerhoff, Lisha Kuinkel, Suzy Han and Anna Gallagher for the University if Utah EDX Bootcamp Final Project.
 ![edX](https://img.shields.io/badge/edX-%2302262B.svg?style=for-the-badge&logo=edX&logoColor=white)
 
 
