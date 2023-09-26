@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Cart from './pages/cart/Cart';
 import Login from './pages/login/login';
 import Signup from './pages/signup/signup';
-import Logout from './pages/Logout/Logout';
+import Logout from './pages/logout/logout';
 
 function App() {
   return (
