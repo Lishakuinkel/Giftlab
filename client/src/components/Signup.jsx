@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { signupFields } from "../constants/formFields"
 import FormAction from "./FormAction";
 import Input from "./Input";
+import {useMutation} from "@apollo/client";
+import {ADD_USER} from "../utils/mutations";
+
 
 const fields=signupFields;
 let fieldsState={};
@@ -10,13 +13,23 @@ fields.forEach(field => fieldsState[field.id]='');
 
 export default function Signup(){
   const [signupState,setSignupState]=useState(fieldsState);
-
   const handleChange=(e)=>setSignupState({...signupState,[e.target.id]:e.target.value});
+  const [addUser,{error}] = useMutation(ADD_USER);
 
-  const handleSubmit=(e)=>{
+  const handleSubmit= async (e)=>{
     e.preventDefault();
     console.log(signupState)
-    createAccount()
+    try{
+      const {data} = await addUser({
+        variables: {
+          ...signupState
+        }
+      })
+      console.log(data);
+    }
+    catch(error){
+      console.log(error)
+    }
   }
 
   //handle Signup API Integration here
