@@ -18,9 +18,9 @@ export const GET_PRODUCTS = gql`
 `;
 
 // query to get a product by id
-export const GET_PRODUCTS_BY_ID = gql`
-  query getProductsById($category: ID) {
-    products(category: $category) {
+export const GET_PRODUCT_BY_ID = gql`
+  query getProductById($_id: ID) {
+    product(_id: $_id) {
       _id
       name
       description
