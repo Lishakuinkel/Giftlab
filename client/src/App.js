@@ -88,6 +88,10 @@ function App() {
           </Router>
         </div>
       </div>
+            </Routes>
+          </Router>
+        </div>
+      </div>
     </ApolloProvider>
   );
 }
