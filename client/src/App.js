@@ -6,25 +6,54 @@ import Login from './pages/login/login';
 import Signup from './pages/signup/signup';
 // import Logout from './pages/Logout/Logout';
 
+// import Apollo Client
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
 function App() {
   return (
-    <div>
+    <ApolloProvider client={client}>
       <div>
-        <Router>
-          <Navbar />
-          <Routes>
+        <div>
+          <Router>
+            <Navbar />
+            <Routes>
            
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/signup' element={<Signup />} />
                     
-            <Route path='/cart' element={<Cart />} />
-            {/* <Route path='/logout' element={<Logout />} /> */}
+              <Route path='/cart' element={<Cart />} />
+              {/* <Route path='/logout' element={<Logout />} /> */}
             
-          </Routes>
-        </Router>
+            </Routes>
+          </Router>
+        </div>
       </div>
-
-    </div>
+    </ApolloProvider>
   );
 }
 
