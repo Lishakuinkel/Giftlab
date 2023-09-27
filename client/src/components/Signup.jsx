@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { signupFields } from "../constants/formFields"
 import FormAction from "./FormAction";
 import Input from "./Input";
 import {useMutation} from "@apollo/client";
 import {ADD_USER} from "../utils/mutations";
+import Auth from "../utils/auth";
 
 
 const fields=signupFields;
@@ -19,17 +20,18 @@ export default function Signup(){
   const handleSubmit= async (e)=>{
     e.preventDefault();
     console.log(signupState)
-    try{
-      const {data} = await addUser({
+
+      let mutationResponse = await addUser({
         variables: {
-          ...signupState
+          email: signupState.email, password: signupState.password,
+          username: signupState.username
         }
       })
-      console.log(data);
-    }
-    catch(error){
-      console.log(error)
-    }
+
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
+
+    createAccount()
   }
 
   //handle Signup API Integration here
@@ -58,9 +60,7 @@ export default function Signup(){
                 }
               <FormAction handleSubmit={handleSubmit} text="Signup" />
             </div>
-    
-             
-    
           </form>
         )
     }
+
