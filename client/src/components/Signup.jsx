@@ -20,18 +20,17 @@ export default function Signup(){
   const handleSubmit= async (e)=>{
     e.preventDefault();
     console.log(signupState)
-
-      let mutationResponse = await addUser({
+    try{
+      const {data} = await addUser({
         variables: {
-          email: signupState.email, password: signupState.password,
-          username: signupState.username
+          ...signupState
         }
       })
-
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
-
-    createAccount()
+      console.log(data);
+    }
+    catch(error){
+      console.log(error)
+    }
   }
 
   //handle Signup API Integration here
@@ -60,7 +59,9 @@ export default function Signup(){
                 }
               <FormAction handleSubmit={handleSubmit} text="Signup" />
             </div>
+    
+             
+    
           </form>
         )
     }
-
