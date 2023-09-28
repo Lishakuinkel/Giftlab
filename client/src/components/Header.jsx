@@ -19,7 +19,7 @@ const Header = ({
     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
         {heading}
     </h2>
-    <p className="mt-2 text-center text-sm text-gray-600 mt-5">
+    <p className="mt-2 text-center text-sm text-gray-600">
     {paragraph} {' '}
     <Link to={linkUrl} className="font-medium text-[#3a685b] hover:text-[#64a579]">
         {linkName}
