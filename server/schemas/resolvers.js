@@ -9,7 +9,7 @@ const resolvers = {
 
         // We may need ({}) after.find AG
 
-        return await Category.find();
+        return await Category.find({});
       },
       
       products: async (parent, { category, name }) => {
