@@ -23,7 +23,7 @@ const userSchema = new Schema({
   },
   orders: [Order.schema]
 });
-
+// hash the password
 userSchema.pre('save', async function(next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
