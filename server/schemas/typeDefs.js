@@ -17,6 +17,8 @@ type User {
 type Category {
   _id: ID
   name: String
+  image: String
+  product:
 }
 
 type Product {
