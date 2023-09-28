@@ -6,6 +6,7 @@ const resolvers = {
 
     Query: {
       categories: async () => {
+        // We may need ({}) after.find AG
         return await Category.find();
       },
       
