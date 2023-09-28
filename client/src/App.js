@@ -30,9 +30,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <div>
+      
       <div>
         <Router>
           <Navbar />
+          
           <Routes>
            
               <Route path='/login' element={<Login />} />
