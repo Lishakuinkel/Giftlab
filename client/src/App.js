@@ -4,16 +4,19 @@ import Navbar from './components/Navbar';
 import Cart from './pages/cart/Cart';
 import Login from './pages/login/login';
 import Signup from './pages/signup/signup';
+import Home from './components/Home';
 // import Logout from './pages/Logout/Logout';
 
 function App() {
   return (
     <div>
+      
       <div>
         <Router>
           <Navbar />
+          
           <Routes>
-           
+            <Route path='/home' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
                     
