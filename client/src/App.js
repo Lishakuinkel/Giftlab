@@ -1,26 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink} from '@apollo/client';
 import Navbar from './components/Navbar';
 import Cart from './pages/cart/Cart';
 import Login from './pages/login/login';
 import Signup from './pages/signup/signup';
-// import Logout from './pages/Logout/Logout';
-
-// import Apollo Client
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
-
 const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
+  // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
@@ -30,18 +22,18 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
+  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
 function App() {
   return (
-    <ApolloProvider client={client}>
+    <div>
       <div>
-        <div>
-          <Router>
-            <Navbar />
-            <Routes>
+        <Router>
+          <Navbar />
+          <Routes>
            
               <Route path='/login' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
@@ -49,11 +41,11 @@ function App() {
               <Route path='/cart' element={<Cart />} />
               {/* <Route path='/logout' element={<Logout />} /> */}
             
-            </Routes>
-          </Router>
-        </div>
+          </Routes>
+        </Router>
       </div>
-    </ApolloProvider>
+
+    </div>
   );
 }
 
