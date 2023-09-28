@@ -6,7 +6,7 @@ const signup = () => {
     return (
         <>
             <Header
-                heading="Signup to create an account"
+                heading="Create an account"
                 paragraph="Already have an account? "
                 linkName="Login"
                 linkUrl="/login"
