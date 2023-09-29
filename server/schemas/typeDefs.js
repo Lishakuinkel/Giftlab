@@ -14,11 +14,13 @@ type User {
     user: User
   }
 
+type Category {
+  _id: ID
+  name: String
 
-  type Category {
-    _id: ID
-    name: String
-  }
+  image: String
+
+}
 
 type Product {
   _id: ID
