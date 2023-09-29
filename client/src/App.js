@@ -6,42 +6,6 @@ import Cart from './pages/cart/Cart';
 import Login from './pages/login/login';
 import Signup from './pages/signup/signup';
 // import Logout from './pages/Logout/Logout';
-
-// import Apollo Client
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-
-const httpLink = createHttpLink({
-  uri: '/graphql',
-});
-
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
-
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
-
-// import Apollo Client
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
@@ -81,10 +45,6 @@ function App() {
               <Route path='/cart' element={<Cart />} />
               {/* <Route path='/logout' element={<Logout />} /> */}
                           
-            </Routes>
-          </Router>
-        </div>
-      </div>
             </Routes>
           </Router>
         </div>
