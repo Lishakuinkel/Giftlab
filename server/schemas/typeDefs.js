@@ -19,7 +19,7 @@ type Category {
   name: String
 
   image: String
-  product: 
+
 }
 
 type Product {
