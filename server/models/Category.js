@@ -10,20 +10,9 @@ const categorySchema = new Schema({
   image: {
 
     type: String, 
-<<<<<<< HEAD
-    // required: true
-
-  },
-  // product: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'Product',
-  //   required: true
-  // },
-=======
    
   },
    
->>>>>>> developed
 });
 
 const Category = mongoose.model('Category', categorySchema);
