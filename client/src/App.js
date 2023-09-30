@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink} from '@apollo/client';
 import Home from './pages/home/home';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import Cart from './pages/cart/Cart';
 import Login from './pages/login/login';
 import Signup from './pages/signup/signup';
-// import Logout from './pages/Logout/Logout';
+
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
@@ -39,7 +39,7 @@ function App() {
           <Navbar />
           
           <Routes>
-            <Route path='/home' element={<Home />} />
+            <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
                     
