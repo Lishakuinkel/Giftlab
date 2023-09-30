@@ -1,12 +1,16 @@
-import React from 'react'
-// import ProductList from '../../components/Products/Products';
+import React from 'react';
+import Products from '../../components/ProductList/Products'
+//import CategoryMenu from '../../components/CategoryMenu/CategoryMenu';
 
 const Home = () => {
   return (
-    <div>Home
-        {/* <ProductList> */}
+    
+    <div> 
+      <p>Homepage....</p>
+      
+      <Products />
     </div>
   )
 }
 
-export default Home;
+export default Home
