@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import darklogo from '../assets/darklogo.png'
+import darklogo from '../../assets/darklogo.png'
 
 const Header = ({
     heading,
