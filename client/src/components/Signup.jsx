@@ -5,27 +5,39 @@ import Input from "./Input";
 import {useMutation} from "@apollo/client";
 import {ADD_USER} from "../utils/mutations";
 
+import { useNavigate } from "react-router-dom";
 
 const fields=signupFields;
+
+
+
 let fieldsState={};
 
 fields.forEach(field => fieldsState[field.id]='');
 
 export default function Signup(){
   const [signupState,setSignupState]=useState(fieldsState);
+  const navigate = useNavigate();
   const handleChange=(e)=>setSignupState({...signupState,[e.target.id]:e.target.value});
-  const [addUser,{error}] = useMutation(ADD_USER);
+  
+   // Set up our mutation with an option to handle errors
+  const [addUser,{ error }] = useMutation(ADD_USER);
 
   const handleSubmit= async (e)=>{
     e.preventDefault();
     console.log(signupState)
+
+    // On form submit, perform mutation and pass in form data object as arguments
     try{
-      const {data} = await addUser({
+      const { data } = await addUser({
         variables: {
           ...signupState
         }
       })
       console.log(data);
+      
+      navigate('/login');
+      
     }
     catch(error){
       console.log(error)
@@ -56,7 +68,7 @@ export default function Signup(){
                     />
                     )
                 }
-              <FormAction handleSubmit={handleSubmit} text="Signup" />
+              <FormAction handleSubmit={handleSubmit} text="Signup"> </FormAction>
             </div>
     
              
