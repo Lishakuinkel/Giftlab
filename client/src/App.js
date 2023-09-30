@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import Cart from './pages/cart/Cart';
 import Login from './pages/login/login';
 import Signup from './pages/signup/signup';
-// import Logout from './pages/Logout/Logout';
+
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({

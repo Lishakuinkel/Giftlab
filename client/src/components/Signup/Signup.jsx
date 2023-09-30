@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { signupFields } from "../constants/formFields"
-import FormAction from "./FormAction";
-import Input from "./Input";
+import { signupFields } from "../../constants/formFields"
+import FormAction from "../FormAction";
+import Input from "../Input";
 import {useMutation} from "@apollo/client";
-import {ADD_USER} from "../utils/mutations";
+import {ADD_USER} from "../../utils/mutations";
 
 import { useNavigate } from "react-router-dom";
 
