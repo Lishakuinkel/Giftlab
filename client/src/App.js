@@ -6,6 +6,8 @@ import Navbar from './components/Navbar/Navbar';
 import Cart from './pages/cart/Cart';
 import Login from './pages/login/login';
 import Signup from './pages/signup/signup';
+import Profile from './pages/profile/profile';
+import ProductItem from './components/ProductItem/ProductItem';
 
 import { setContext } from '@apollo/client/link/context';
 
@@ -42,7 +44,8 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
-                    
+            <Route path = '/profile' element={<Profile />} />
+            <Route path = '/product/:id' element={<ProductItem />}/>      
               <Route path='/cart' element={<Cart />} />
               {/* <Route path='/logout' element={<Logout />} /> */}
                           
