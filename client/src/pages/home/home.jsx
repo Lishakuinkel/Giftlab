@@ -2,6 +2,8 @@ import React from 'react';
 import Typed from 'react-typed';
 import { Gift } from 'phosphor-react';
 import Searchbar from './searchbar';
+
+
 //import Products from '../../components/ProductList/Products'
 //import CategoryMenu from '../../components/CategoryMenu/CategoryMenu';
 
