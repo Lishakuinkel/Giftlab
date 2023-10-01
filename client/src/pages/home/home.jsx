@@ -4,7 +4,7 @@ import { Gift } from 'phosphor-react';
 import Searchbar from './searchbar';
 
 
-//import Products from '../../components/ProductList/Products'
+import Products from '../../components/ProductList/Products'
 import CategoryMenu from '../../components/CategoryMenu/CategoryMenu';
 
 const Home = () => {
@@ -18,6 +18,7 @@ const Home = () => {
       </div>
       <div>
        <CategoryMenu /> 
+       <Products />
       </div>
     </div>
   )
