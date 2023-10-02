@@ -68,7 +68,7 @@ We would like to say thank you to the continuous help of the teacher, TAs and tu
 
 ## Features
 
-Together as a group we conceived and executed a design that solves a e-commerce functionality problem. We combined a scalable MongoDB back end, a GraphQL API, and an Express.js and Node.js server with a React front end, implementing user authentication with JWT to build a user-focused platform. Our Concentration was on practicing agile developemnt throughout the project creation and collaboration. These include storing our project code in GitHub, managing personal assignments with a project management tool, and implementing feature and bug fixes using the Git branch workflow and pull requests. We utilized the best practices in working with back end to front end development.
+Together as a group we conceived and executed a design that solves an e-commerce functionality problem. We combined a scalable MongoDB back end, a GraphQL API, and an Express.js and Node.js server with a React front end, implementing user authentication with JWT to build a user-focused platform. Our concentration was on practicing agile developemnt throughout the project creation and collaboration. These include storing our project code in GitHub, managing personal assignments with a project management tool, and implementing feature and bug fixes using the Git branch workflow and pull requests. We utilized the best practices in working with back end to front end development.
 
 
 ## Usage Information
