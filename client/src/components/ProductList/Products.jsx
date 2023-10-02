@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { useMemo } from "react";
+import { Link } from "react-router-dom";
 
 function ProductList({ filter }) {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
@@ -27,16 +28,14 @@ function ProductList({ filter }) {
     return data.products;
   }, [data, filter]);
 
-  console.log(products);
-
   return (
     <div className="my-2">
       <h2>Our Products:</h2>
       {products?.map((product, i) => {
         return (
-          <button key={i} className="">
+          <Link key={i} className="" to={`/product/${product._id}`}>
             {product.name}
-          </button>
+          </Link>
         );
       })}
     </div>
