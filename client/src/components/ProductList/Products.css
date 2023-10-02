@@ -4,6 +4,7 @@
     margin: auto;
     text-align: center;
     font-family: sans-serif;
+    padding-top: 25px;
     
   }
   
@@ -30,7 +31,7 @@
     width: 100%;
     font-size: 14px;
     justify-content: space-around;
-    ;
+    
   }
   
   .card button:hover {

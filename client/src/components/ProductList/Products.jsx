@@ -73,7 +73,7 @@ function ProductList({ filter }) {
           )
         })}
 
-      </Carousel>;
+      </Carousel>
 
     </div>
   );

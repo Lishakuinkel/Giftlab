@@ -10,8 +10,8 @@ const Home = () => {
 
   return (
     <div className="bg-[#eaeadb] w-full h-screen text-center">
-      <Searchbar setSearchFilter={setSearchFilter} />
-      <div className="py-2 items-center text-center text-2xl md:text-2xl sm:text-1xl">
+      
+      <div className="py-10 items-center text-center text-2xl md:text-2xl sm:text-1xl">
         <Typed
           className=" font-bold font-style: italic font-serif text-[#c77783] drop-shadow-lg "
           strings={["where thoughtful gifts come to life..."]}
@@ -20,12 +20,13 @@ const Home = () => {
           loop
         />
       </div>
+      <Searchbar setSearchFilter={setSearchFilter} />
       <div>
         
         <Products filter={searchFilter} />
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Home;
