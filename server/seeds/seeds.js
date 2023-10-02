@@ -28,6 +28,15 @@ db.once('open', async () => {
       quantity: 500
     },
     {
+      name: 'Decorative Large Christmas Wreath',
+      category: categories[1]._id,
+      description:
+        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
+      image: 'Wreath.jpeg',
+      price: 38.00,
+      quantity: 100
+    }, 
+    {
       name: 'Love Baloon',
       description:
         'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
@@ -35,6 +44,15 @@ db.once('open', async () => {
       category: categories[4]._id,
       price: 1.99,
       quantity: 500
+    },
+    {
+      name: 'Classic Watch Gift',
+      category: categories[2]._id,
+      description:
+        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
+      image: 'watch.jpeg',
+      price: 38.00,
+      quantity: 100
     },
     {
       name: 'LOVE Lamp Sign',
@@ -45,6 +63,15 @@ db.once('open', async () => {
       price: 7.99,
       quantity: 20
     },
+    {
+      name: 'Recipe Book',
+      category: categories[3]._id,
+      description:
+        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
+      image: 'recipebook.jpg',
+      price: 38.00,
+      quantity: 100
+    }, 
     {
       name: 'Love Ornaments',
       category: categories[4]._id,
@@ -126,15 +153,7 @@ db.once('open', async () => {
       price: 40.00,
       quantity: 50
     },
-    {
-      name: 'Receipe Book',
-      category: categories[3]._id,
-      description:
-        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
-      image: 'recipebook.jpg',
-      price: 38.00,
-      quantity: 100
-    }, 
+    
     {
       name: 'Logs Gift Basket',
       category: categories[1]._id,
@@ -189,15 +208,7 @@ db.once('open', async () => {
       price: 38.00,
       quantity: 100
     }, 
-    {
-      name: 'Decorative Large Christmas Wreath',
-      category: categories[1]._id,
-      description:
-        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
-      image: 'Wreath.jpeg',
-      price: 38.00,
-      quantity: 100
-    }, 
+   
     {
       name: 'Cake for DAD#1',
       category: categories[2]._id,
@@ -233,16 +244,8 @@ db.once('open', async () => {
       image: 'shirt.webp',
       price: 38.00,
       quantity: 100
-    }, 
-    {
-      name: 'Classic Watch Gift',
-      category: categories[2]._id,
-      description:
-        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
-      image: 'watch.jpeg',
-      price: 38.00,
-      quantity: 100
-    }, 
+    }
+     
 
   ]);
 

@@ -5,7 +5,7 @@ import { QUERY_PRODUCTS } from "../../utils/queries";
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "phosphor-react";
-import "./Products.css"
+import "./Products.css";
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
