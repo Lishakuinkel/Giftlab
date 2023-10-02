@@ -11,7 +11,7 @@ const Searchbar = ({ setSearchFilter }) => {
   };
 
   return (
-    <div class="flex flex-1 items-center justify-center p-6">
+    <div class="flex flex-1 items-center justify-center px-5">
       <div class="w-full max-w-lg">
         <form class="mt-5 sm:flex sm:items-center" onSubmit={handleFormSubmit}>
           <input
