@@ -11,6 +11,7 @@
     margin-right: 35px;
     display: flex;
     align-items: center;
+    margin-right: 30px;
   }
   
   .links a {
@@ -18,6 +19,7 @@
     color: white;
     margin-left: 20px;
     font-size: 25px;
+    margin-right: 10px;
   }
 
   .logo {
