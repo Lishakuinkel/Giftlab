@@ -3,10 +3,11 @@ import OrderHistory from "../../components/OrderHistory/OrderHistory.jsx"
 
 const Profile = () => {
   return (
-    <div>
-      Dashboard
+    
+      <div>
       <OrderHistory />
-    </div>
+      </div>
+  
   )
 }
 
