@@ -3,7 +3,7 @@ import { useCartContext } from '../../utils/cartContext';
 import "./cart.css";
 
 const Cart = () => {
-  const { cart, addToCart, removeCart } = useCartContext();
+  const { cart, totalAmount, addToCart, removeCart } = useCartContext();
   
   console.log("cart", cart);
 
@@ -23,11 +23,15 @@ const Cart = () => {
         {cart.map((item) => (
           <li className="card" key={item.product._id}>
             {item.product.name} - Quantity: {item.quantity}
+              <div>
+              <p className="price">{item.product.price}</p>
+              </div>
             <button onClick={() => removeCart(item.product._id)}>Remove</button>
             <button onClick={() => addToCart(item.product)}>Add One</button>
           </li>
         ))}
       </ul>
+      <p>Total Amount: ${totalAmount.toFixed(2)}</p> {/* Display the total amount */}
       <button className="checkout">Checkout</button>
     </div>
   );
