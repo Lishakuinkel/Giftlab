@@ -42,22 +42,20 @@ export default function Login() {
   };
 
   const validation = (loginState) => {
-    let errors = {}
+    let errors = {};
 
-    if(!loginState.name) {
-        errors.name = "Name Required"
+    if (!loginState.name) {
+      errors.name = "Name Required";
+    } else if (loginState.name.length < 5) {
+      errors.name = "Name must be more than 5 characters";
     }
-    else if (loginState.name.length < 5) {
-        errors.name = "Name must be more than 5 characters"
-    }
-    if (!loginState.password){
-        errors.password = "Password Required"
-    }
-    else if (loginState.password.length < 6) {
-        errors.password = "Password must not be less than 6 characters"
+    if (!loginState.password) {
+      errors.password = "Password Required";
+    } else if (loginState.password.length < 6) {
+      errors.password = "Password must not be less than 6 characters";
     }
     return errors;
-  }
+  };
 
   // submit form
   const handleSubmit = async (e) => {
@@ -73,7 +71,7 @@ export default function Login() {
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
-      navigate("/");
+      alert("incorrect email or password");
     }
   };
 
