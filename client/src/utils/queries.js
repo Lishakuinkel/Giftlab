@@ -88,22 +88,22 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_ORDER = gql`
-  {
+// export const QUERY_ORDER = gql`
+//   {
    
-      username
-      orders {
-        _id
-        purchaseDate
-        products {
-          _id
-          name
-          description
-          price
-          quantity
-          image
-        }
-      }
-    }
-  }
-`;
+//       username
+//       orders {
+//         _id
+//         purchaseDate
+//         products {
+//           _id
+//           name
+//           description
+//           price
+//           quantity
+//           image
+//         }
+//       }
+//     }
+//   }
+// `;
