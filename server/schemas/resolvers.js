@@ -62,6 +62,19 @@ const resolvers = {
         if (!context.user) {
           throw new AuthenticationError('You need to be logged in!')
         }
+const newOrder={
+  purchaseDate: '',
+  products: args.products.map((e) => {return e._id}),
+  total_price: 19.99,
+  user: args.user_id
+}
+
+//find order by user id
+
+
+
+
+
 
         const url = new URL(context.headers.referer).origin;
         await new Order({ products: args.products });
@@ -149,7 +162,9 @@ const resolvers = {
             { new: true }
           );
         }
-        
+
+
+        // checkout order will go out here
     }
 };
 
