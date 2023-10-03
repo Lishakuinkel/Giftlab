@@ -8,9 +8,9 @@ import logo from "../../assets/logo.png";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <a href="/">
+      <Link to="/">
         <img className="logo" src={logo} alt="logo" />
-      </a>
+        </Link>
       <div className="links">
         <Link to="/login">
           <User size={32} />

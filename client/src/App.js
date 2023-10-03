@@ -13,6 +13,7 @@ import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
 import Profile from "./pages/profile/profile";
 
+import { CartProvider } from './utils/cartContext'; 
 import { setContext } from "@apollo/client/link/context";
 import SingleProduct from "./pages/singleProduct/singleProduct";
 
@@ -38,6 +39,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <CartProvider>
       <div>
         <div>
           <Router>
@@ -55,6 +57,7 @@ function App() {
           </Router>
         </div>
       </div>
+      </CartProvider>
     </ApolloProvider>
   );
 }
