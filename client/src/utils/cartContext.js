@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // Initialize new context for cart
 const CartContext = createContext();
@@ -8,6 +8,19 @@ export const useCartContext = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [totalAmount, setTotalAmount] = useState(0);
+
+  const calculateTotalAmount = () => {
+    let totalAmount = 0;
+    for (const item of cart) {
+      totalAmount += item.product.price * item.quantity;
+    }
+    setTotalAmount(totalAmount); 
+  };
+
+  useEffect(() => {
+    calculateTotalAmount();
+  }, [cart]);
 
   // Function to add a cart
   const addToCart = (product) => {
@@ -66,7 +79,7 @@ export const CartProvider = ({ children }) => {
   // The value prop expects an initial state object
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeCart }}
+      value={{ cart, totalAmount, addToCart, removeCart }}
     >
       {children}
     </CartContext.Provider>
