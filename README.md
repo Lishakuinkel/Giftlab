@@ -34,7 +34,7 @@ GiftLab is a fully functioning full stack web application
 
 ## Description
 
-This application was built for the purpose of demonstrating skills in a group-work approach to develop a full stack web application. library 
+
 
 
 ## Live URL
@@ -62,13 +62,13 @@ This application is powered by Webpack (HTML-Webpack-Plugin, Babel, and CSS Load
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
-## Installation
-
 
 ## Credits
-
+We would like to say thank you to the continuous help of the teacher, TAs and tutoring resource provided by the University of Utah in collaboration with EDx.  
 
 ## Features
+
+Together as a group we conceived and executed a design that solves an e-commerce functionality problem. We combined a scalable MongoDB back end, a GraphQL API, and an Express.js and Node.js server with a React front end, implementing user authentication with JWT to build a user-focused platform. Our concentration was on practicing agile developemnt throughout the project creation and collaboration. These include storing our project code in GitHub, managing personal assignments with a project management tool, and implementing feature and bug fixes using the Git branch workflow and pull requests. We utilized the best practices in working with back end to front end development.
 
 
 ## Usage Information
@@ -81,12 +81,8 @@ This application is powered by Webpack (HTML-Webpack-Plugin, Babel, and CSS Load
 
 ## Contribution Guidelines
 
-GiflLab app was created in collaboration Aleena Brinkerhoff, Lisha Kuinkel, Suzy Han and Anna Gallagher for the University if Utah EDX Bootcamp Final Project.
+GiflLab app was created in collaboration Aleena Brinkerhoff, Lisha Kuinkel, Suzy Han and Anna Gallagher for the University of Utah EDX Full Stack Bootcamp Final Project.
 ![edX](https://img.shields.io/badge/edX-%2302262B.svg?style=for-the-badge&logo=edX&logoColor=white)
-
-
-## Test Instructions
-
 
 
 ## License

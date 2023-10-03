@@ -30,6 +30,11 @@ const responsive = {
   }
 };
 
+// function handleAddToCart(product) {
+//   console.log(`Added ${product.name} to the cart`);
+//   console.log(product);
+// }
+
 function ProductList({ filter }) {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
   const [cart, setCart] = useState([]); // Define cart state
