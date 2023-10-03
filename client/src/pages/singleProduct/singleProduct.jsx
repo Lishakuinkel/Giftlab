@@ -9,7 +9,6 @@ const SingleProduct = () => {
   console.log("typeof id: ", typeof id);
 
   const { loading, data } = useQuery(QUERY_PRODUCT_BY_ID, {
-    // TODO: Convert id into an "ID" type for graphql
     variables: { id: id },
   });
 
