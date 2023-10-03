@@ -1,12 +1,45 @@
 import React from 'react'
+import { useCartContext } from '../../utils/cartContext';
+import "./cart.css";
 
 const Cart = () => {
-  return (
-    <div>Cart</div>
-  )
-}
+  const { cart, addToCart } = useCartContext();
+  
+  console.log(cart);
 
-export default Cart
+
+
+
+
+
+
+
+
+
+
+  return (
+    <div>
+      <h2>Your Shopping Cart</h2>
+      <ul>
+        {cart.map((product) => (
+          <li key={product.id} className="card">
+            <div className="cart">
+              <img className="image" src={product.image} alt={product.name} style={{ width: '100px', height: '100px' }} />
+            </div>
+            <div>
+              <h3>{product.name}</h3>
+              <p>{product.description}</p>
+              <p className="price">{product.price}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <button className="checkout">Checkout</button>
+    </div>
+  );
+};
+
+export default Cart;
 
 // import React, { useState } from 'react';
 
