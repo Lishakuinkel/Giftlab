@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
 import { useParams } from "react-router-dom";
-import ProductItem from "../../components/ProductItem/ProductItem";
 import { QUERY_PRODUCT_BY_ID } from "../../utils/queries";
 
 const SingleProduct = () => {
@@ -16,9 +15,7 @@ const SingleProduct = () => {
 
   return (
     <>
-      <div>
-        <ProductItem />
-      </div>
+      <div></div>
     </>
   );
 };
