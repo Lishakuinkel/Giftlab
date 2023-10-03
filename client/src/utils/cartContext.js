@@ -1,15 +1,15 @@
 import React, { createContext, useContext, useState } from 'react';
 
-// Initialize new context for students
+// Initialize new context for cart
 const CartContext = createContext();
 
-// Custom hook to provide usage of the student context
+// Custom hook to provide usage of the cart context
 export const useCartContext = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  // Function to add a student
+  // Function to add a cart
   const addToCart = (product) => {
     // Prevent adding blank entries
     if (!product.name) {
@@ -20,7 +20,7 @@ export const CartProvider = ({ children }) => {
     setCart([...cart, product]);
   };
 
-  // Function to remove a student
+  // Function to remove a cart
   const removeCart = (id) => {
     const newCartList = cart.filter((product) => product.id !== id);
 
