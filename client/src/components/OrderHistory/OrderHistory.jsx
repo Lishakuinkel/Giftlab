@@ -4,9 +4,9 @@ import "./OrderHistory.css";
 
 function OrderHistory() {
   const orderHistory=[
-    order: 
-    date: 
-    price:
+    // order: 
+    // date: 
+    // price:
 
 
 
