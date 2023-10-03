@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 //import ProductItem from '../ProductItem/ProductItem';
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../../utils/queries";
@@ -6,7 +6,7 @@ import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "phosphor-react";
 import "./Products.css"
-
+import Cart from "../../pages/cart/Cart"
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 //device responsive
@@ -32,6 +32,7 @@ const responsive = {
 
 function ProductList({ filter }) {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const [cart, setCart] = useState([]); // Define cart state
 
   // const products = data?.products || [];
 
@@ -53,6 +54,24 @@ function ProductList({ filter }) {
     return data.products;
   }, [data, filter]);
 
+  // Handle adding a product to the cart state
+  const handleAddToCart = (product) => {
+    console.log (`Added ${product.name} to the cart`);
+    console.log(product);
+    const updatedCart = [...cart];
+    const existingProductIndex = updatedCart.findIndex((item) => item._id === product._id);
+
+    if (existingProductIndex !== -1) {
+      updatedCart[existingProductIndex].quantity += 1;
+    } else {
+      updatedCart.push({ ...product, quantity: 1 });
+    }
+
+    setCart(updatedCart);
+    <Cart />
+  };
+
+
   return (
     <div className="py-12">
 
@@ -66,7 +85,7 @@ function ProductList({ filter }) {
               </Link></h2>
               <p className="price">${product.price}</p>
               <p>
-                <button><ShoppingCart size={30} /> Add to Cart </button>
+                <button onClick={() => handleAddToCart(product)}><ShoppingCart size={30} /> Add to Cart </button>
               </p>
 
             </div>
