@@ -1,16 +1,19 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, User } from "phosphor-react";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
+import CategoryMenu from "../CategoryMenu/CategoryMenu";
 
-const Navbar = () => {
+const Navbar = () => {   
   return (
     <div className="navbar">
       <a href="/">
         <img className="logo" src={logo} alt="logo" />
       </a>
+      <button> <CategoryMenu /></button>
+      
+      
       <div className="links">
         <Link to="/login">
           <User size={32} />

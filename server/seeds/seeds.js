@@ -19,6 +19,15 @@ db.once('open', async () => {
 
   const products = await Product.insertMany([
     {
+      name: 'Warm + Cozy Gift Box',
+      category: categories[3]._id,
+      description:
+        'Cozy in a box. Enjoy everything you need for the perfect snowy night in. Spearmint & Eucalyptus come together for a wonderfully minty bath, alongside an orange peel + clove scented candle for the perfect ambiance. Sip on some organic chai tea in our ceramic speckled mug, and then slip into some cozy cloud socks to complete the evening. Lovingly hand-packed in an elegant pink gift box complete with your personalized greeting card.',
+      image: 'warmcozygiftbox.jpg',
+      price: 60.00,
+      quantity: 500
+    },
+    {
       name: 'Plush Love Bear',
       description:
         'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
@@ -28,7 +37,16 @@ db.once('open', async () => {
       quantity: 500
     },
     {
-      name: 'Decorative Large Christmas Wreath',
+      name: 'Merry Christmas Greeting Card ',
+      category: categories[1]._id,
+      description:
+        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
+      image: 'greetingcard.jpeg',
+      price: 38.00,
+      quantity: 100
+    }, 
+    {
+      name: 'Decorative Christmas Wreath',
       category: categories[1]._id,
       description:
         'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
@@ -45,6 +63,15 @@ db.once('open', async () => {
       price: 1.99,
       quantity: 500
     },
+    {
+      name: 'Cake for DAD#1',
+      category: categories[2]._id,
+      description:
+        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
+      image: 'cake.jpeg',
+      price: 38.00,
+      quantity: 100
+    }, 
     {
       name: 'Classic Watch Gift',
       category: categories[2]._id,
@@ -82,6 +109,15 @@ db.once('open', async () => {
       quantity: 50
     },
     {
+      name: 'Logs Gift Basket',
+      category: categories[1]._id,
+      description:
+        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
+      image: 'giftbasket2.jpeg',
+      price: 38.00,
+      quantity: 100
+    }, 
+    {
       name: 'LOVE Sign Stacked',
       category: categories[4]._id,
       description:
@@ -99,6 +135,15 @@ db.once('open', async () => {
       price: 399.99,
       quantity: 30
     },
+    {
+      name: 'Mens Ugly Sweater Print Sweatshirt',
+      category: categories[1]._id,
+      description:
+        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
+      image: 'uglysweater.jpeg',
+      price: 38.00,
+      quantity: 100
+    }, 
     {
       name: 'Neon Sign',
       category: categories[4]._id,
@@ -126,21 +171,13 @@ db.once('open', async () => {
       price: 47.00,
       quantity: 500
     },
+   
     {
-      name: 'Warm + Cozy Gift Box',
-      category: categories[3]._id,
-      description:
-        'Cozy in a box. Enjoy everything you need for the perfect snowy night in. Spearmint & Eucalyptus come together for a wonderfully minty bath, alongside an orange peel + clove scented candle for the perfect ambiance. Sip on some organic chai tea in our ceramic speckled mug, and then slip into some cozy cloud socks to complete the evening. Lovingly hand-packed in an elegant pink gift box complete with your personalized greeting card.',
-      image: 'warmcozygiftbox.jpg',
-      price: 60.00,
-      quantity: 500
-    },
-    {
-      name: 'Women Lightweight Frilly Sock 4-Pack Gift Box',
+      name: 'Frilly Socks 4-Pack Gift Box',
       category: categories[3]._id,
       description:
         'Calling all frill-seekers: these sparkly frill-topped socks are for you. They are lightweight, with no extra bulk, and plenty of supportive comfort built right in. They come in confident colors, with a bonus sparkly squiggle peeking out at the top, so you never have to worry about blending in again.',
-      image: 'frillysocks.jpg',
+      image: 'frillysocks.jpeg',
       price: 7.99,
       quantity: 50
     },
@@ -154,39 +191,14 @@ db.once('open', async () => {
       quantity: 50
     },
     
-    {
-      name: 'Logs Gift Basket',
-      category: categories[1]._id,
-      description:
-        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
-      image: 'gift basket2.jpeg',
-      price: 38.00,
-      quantity: 100
-    }, 
+   
+        
     {
       name: 'Red Holiday Cheer Basket',
       category: categories[1]._id,
       description:
         'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
-      image: 'gift basket.webp',
-      price: 38.00,
-      quantity: 100
-    }, 
-    {
-      name: 'Merry Christmas Greeting Card ',
-      category: categories[1]._id,
-      description:
-        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
-      image: 'greeting card.jpeg',
-      price: 38.00,
-      quantity: 100
-    }, 
-    {
-      name: 'Red Holiday Cheer Basket',
-      category: categories[1]._id,
-      description:
-        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
-      image: 'gift basket.webp',
+      image: 'giftbasket.jpeg',
       price: 38.00,
       quantity: 100
     }, 
@@ -199,31 +211,15 @@ db.once('open', async () => {
       price: 38.00,
       quantity: 100
     }, 
-    {
-      name: 'Mens Ugly Sweater Print Sweatshirt',
-      category: categories[1]._id,
-      description:
-        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
-      image: 'ugly sweater.webp',
-      price: 38.00,
-      quantity: 100
-    }, 
    
-    {
-      name: 'Cake for DAD#1',
-      category: categories[2]._id,
-      description:
-        'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
-      image: 'cake.jpeg',
-      price: 38.00,
-      quantity: 100
-    }, 
+   
+  
     {
       name: 'Gift Basket for Father',
       category: categories[2]._id,
       description:
         'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
-      image: 'gift basket father.jpeg',
+      image: 'giftbasketfather.jpeg',
       price: 38.00,
       quantity: 100
     }, 
@@ -232,7 +228,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'Scribble. Sauté. Savour. Take your culinary memories from plate to page with our recipe journals. Dream up new dishes or remember family favorites. And for days you dont want to wear the chefs hat',
-      image: 'greeting card.webp',
+      image: 'fathersdaycard.jpeg',
       price: 38.00,
       quantity: 100
     }, 
