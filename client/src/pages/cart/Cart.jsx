@@ -3,10 +3,9 @@ import { useCartContext } from '../../utils/cartContext';
 import "./cart.css";
 
 const Cart = () => {
-  const { cart, addToCart } = useCartContext();
+  const { cart, addToCart, removeCart } = useCartContext();
   
-  console.log(cart);
-
+  console.log("cart", cart);
 
 
 
@@ -19,18 +18,13 @@ const Cart = () => {
 
   return (
     <div>
-      <h2>Your Shopping Cart</h2>
+      <h2>Shopping Cart</h2>
       <ul>
-        {cart.map((product) => (
-          <li key={product.id} className="card">
-            <div className="cart">
-              <img className="image" src={product.image} alt={product.name} style={{ width: '100px', height: '100px' }} />
-            </div>
-            <div>
-              <h3>{product.name}</h3>
-              <p>{product.description}</p>
-              <p className="price">{product.price}</p>
-            </div>
+        {cart.map((item) => (
+          <li className="card" key={item.product._id}>
+            {item.product.name} - Quantity: {item.quantity}
+            <button onClick={() => removeCart(item.product._id)}>Remove</button>
+            <button onClick={() => addToCart(item.product)}>Add One</button>
           </li>
         ))}
       </ul>
@@ -38,6 +32,28 @@ const Cart = () => {
     </div>
   );
 };
+
+//   return (
+//     <div>
+//       <h2>Your Shopping Cart</h2>
+//       <ul>
+//         {cart.map((product) => (
+//           <li key={product.id} className="card">
+//             <div className="cart">
+//               <img className="image" src={product.image} alt={product.name} style={{ width: '100px', height: '100px' }} />
+//             </div>
+//             <div>
+//               <h3>{product.name}</h3>
+//               <p>{product.description}</p>
+//               <p className="price">{product.price}</p>
+//             </div>
+//           </li>
+//         ))}
+//       </ul>
+//       <button className="checkout">Checkout</button>
+//     </div>
+//   );
+// };
 
 export default Cart;
 
