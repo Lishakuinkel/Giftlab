@@ -90,8 +90,7 @@ export const QUERY_USER = gql`
 
 export const QUERY_ORDER = gql`
   {
-   
-      username
+    user {
       orders {
         _id
         purchaseDate
