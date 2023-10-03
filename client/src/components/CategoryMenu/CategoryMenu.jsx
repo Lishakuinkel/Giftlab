@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { useMemo } from "react";
 import './CategoryMenu.css'
+import CategoryPage from './CategoryPage';
 
 const CategoryMenu = ( { filter }) => {
   const { loading, data } = useQuery(QUERY_CATEGORIES);
@@ -48,11 +49,14 @@ const CategoryMenu = ( { filter }) => {
   function DropdownItem(category){
     return(
       <li className = 'dropdownItem'>
-        <a> {category.text} </a>
+        {/* <button onClick={handleClick}> {category.text} </button> */}
       </li>
     );
   }
 
+  // function handleClick () {
+
+  // }
   return (
     <div className='categoryMenu'>
       <div className='menu-container' ref={menuRef}>

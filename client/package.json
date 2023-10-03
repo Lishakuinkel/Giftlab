@@ -5,6 +5,7 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "@apollo/client": "^3.8.4",
+    "@material-tailwind/react": "^2.1.2",
     "@mui/icons-material": "^5.14.11",
     "@mui/material": "^5.14.11",
     "@testing-library/jest-dom": "^5.17.0",

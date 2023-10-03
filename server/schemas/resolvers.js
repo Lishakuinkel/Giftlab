@@ -131,12 +131,21 @@ const resolvers = {
     addOrder: async (parent, { products }, context) => {
       console.log(context);
       if (context.user) {
-        const order = new Order({ products });
-        await User.findByIdAndUpdate(context.user._id, {
-          $push: { orders: order },
-        });
-        return order;
+        try{
+        const order = {
+          //take products id into the products array
+          //total price 899
+          //take context.userid
+          
+        }
+        await Order.create(order);
+        return
       }
+    
+    catch(error){
+
+    }
+  }
     },
     updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
@@ -146,6 +155,7 @@ const resolvers = {
         { new: true }
       );
     },
+    
   },
 };
 

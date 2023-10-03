@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ShoppingCart, User } from "phosphor-react";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
-import CategoryMenu from "../CategoryMenu/CategoryMenu";
+// import CategoryMenu from "../CategoryMenu/CategoryMenu";
 
 const Navbar = () => {   
   return (
@@ -11,7 +11,7 @@ const Navbar = () => {
       <a href="/">
         <img className="logo" src={logo} alt="logo" />
       </a>
-      <button> <CategoryMenu /></button>
+      {/* <button> <CategoryMenu /></button> */}
       
       
       <div className="links">
