@@ -5,6 +5,7 @@ html {
 }
 
 body {
+    
     background-color: rgb(234 234 219);
     
 }
@@ -16,31 +17,42 @@ body {
 }
 
 table {
-    width: 100%;
+    overflow-x: auto;
+    width: 150%;
     background-color: white;
+    overflow: hidden; 
   }
 
 .border-1 {
     border: 1px solid rgb(87, 124, 114)
    
 }
+tr {
+    border: 1px solid rgb(87, 124, 114)
+}
 
 .button1 {
+    display: flex;
     background-color: rgb(87, 124, 114);
         border: none;
         color: white;
-        padding: 15px 32px;
+        padding: 12px 30px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
         border-radius:10px ;
+        position: flex;
+        margin-left: 700px;;
       }
 
 .order {
-    margin-top: 100px;
-    margin-left: 100px;
-font-size: 25px;
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 100px;  
+    margin-left: 300px;
+    font-size: 25px;
+
 /* color:  rgb(87, 124, 114); */
 
 }
