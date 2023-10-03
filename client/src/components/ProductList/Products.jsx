@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+// eslint-disable-next-line
+import React, { useEffect, useState } from "react";
 //import ProductItem from '../ProductItem/ProductItem';
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../../utils/queries";
@@ -30,8 +31,14 @@ const responsive = {
   }
 };
 
+// function handleAddToCart(product) {
+//   console.log(`Added ${product.name} to the cart`);
+//   console.log(product);
+// }
+
 function ProductList({ filter }) {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const [cartItems, setCartItems] = useState([]);
 
   // const products = data?.products || [];
 
@@ -53,6 +60,20 @@ function ProductList({ filter }) {
     return data.products;
   }, [data, filter]);
 
+  const handleAddToCart = (product) => {
+    console.log(`Added ${product.name} to the cart`);
+    console.log(product);
+    const exist = cartItems.find(x => x.id === product.id);
+    if(exist) {
+      setCartItems(
+        cartItems.map((x) => x.id === product.id ? {...exist, qty: exist.qty +1 } : x
+       )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, qty: 1 }])
+    }
+  }
+
   return (
     <div className="py-12">
 
@@ -66,7 +87,7 @@ function ProductList({ filter }) {
               </Link></h2>
               <p className="price">${product.price}</p>
               <p>
-                <button><ShoppingCart size={30} /> Add to Cart </button>
+                <button onClick={() => handleAddToCart(product)}><ShoppingCart size={30} /> Add to Cart </button>
               </p>
 
             </div>
