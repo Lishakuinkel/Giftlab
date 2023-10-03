@@ -1,60 +1,75 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Order } = require('../models');
-const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require("apollo-server-express");
+const { User, Product, Category, Order } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
+  Query: {
+    categories: async () => {
+      // We may need ({}) after.find AG
 
-    Query: {
-      categories: async () => {
+      return await Category.find({});
+    },
 
-        // We may need ({}) after.find AG
+    products: async (parent, { category, name }) => {
+      const params = {};
 
-        return await Category.find({});
-      },
-      
-      products: async (parent, { category, name }) => {
-        const params = {};
+      if (category) {
+        params.category = category;
+      }
 
-        if (category) {
-          params.category = category;
+      if (name) {
+        params.name = {
+          $regex: name,
+        };
+      }
+
+      return await Product.find(params).populate("category");
+    },
+    product: async (parent, { _id }) => {
+      return await Product.findById(_id).populate("category");
+    },
+    user: async (parent, args, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: "orders.products",
+          populate: "category",
+        });
+
+        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+
+        return user;
+      }
+
+      throw new AuthenticationError("Not logged in");
+    },
+    order: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: "orders.products",
+          populate: "category",
+        });
+
+        return user.orders.id(_id);
+      }
+
+      throw new AuthenticationError("Not logged in");
+    },
+    checkout: async (parent, args, context) => {
+      if (!context.user) {
+        throw new AuthenticationError("You need to be logged in!");
+      }
+
+      const url = new URL(context.headers.referer).origin;
+      await new Order({ products: args.products });
+      const line_items = [];
+
+      for (const product of args.products) {
+        const product = await Product.findById(product._id);
+
+        if (!product) {
+          throw new Error("Product not found");
         }
 
-        if (name) {
-          params.name = {
-            $regex: name
-          };
-        }
-
-        return await Product.find(params).populate('category');
-      },
-      product: async (parent, { _id }) => {
-        return await Product.findbyId(_id).populate('category');
-      },
-      user: async (parent, args, context) => {
-        if (context.user) {
-          const user = await User.findbyId(context.user._id)
-          .populate({
-            path: 'orders.products',
-            populate: 'category'
-          });
-
-          user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
-
-          return user;
-        }
-
-        throw new AuthenticationError('Not logged in');
-      },
-      order: async (parent, { _id }, context) => {
-        if (context.user) {
-          const user = await User.findbyId(context.user._id)
-          .populate({
-            path: 'orders.products',
-            populate: 'category'
-          });
-
-          return user.orders.id(_id);
-        }
 
         throw new AuthenticationError('Not logged in');
       },
@@ -96,22 +111,34 @@ const newOrder={
                 images: [`${url}/images/${product.image}`]
               },
               unit_amount: product.price * 100 // convert price to cents
-            },
-            quantity: product.purchaseQuantity,
-          });
-          const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card'],
-            line_items,
-            mode: 'payment',
-            success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${url}/`,
-          });
-          
-          return { session: session.id };
-        }
-      },
-  },
 
+        line_items.push({
+          price_data: {
+            currency: "usd",
+            product_data: {
+              name: product.name,
+              description: product.description,
+              images: [`${url}/images/${product.image}`],
+
+            },
+            unit_amount: product.price * 100, // convert price to cents
+          },
+          quantity: product.purchaseQuantity,
+        });
+        const session = await stripe.checkout.sessions.create({
+          payment_method_types: ["card"],
+          line_items,
+          mode: "payment",
+          success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+          cancel_url: `${url}/`,
+        });
+
+        return { session: session.id };
+      }
+    },
+  },
+      
+      
     Mutation: {
         addUser: async (parent, args) => {
             const user = await User.create(args);
@@ -164,9 +191,9 @@ const newOrder={
         }
 
 
-        // checkout order will go out here
+        // checkout order will go out here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
-};
 
+};
 
 module.exports = resolvers;
