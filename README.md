@@ -68,10 +68,10 @@ This application is powered by Webpack (HTML-Webpack-Plugin, Babel, and CSS Load
 
 You may download the repository or clone it with git clone ssh key. 
 The operation of this code will require npm install packages by running npm i in your main terminal:
-    - `create-react-app`
-    - `graphql`
-    - `tailwindcss`
-    - `react-typed --force`
+    `create-react-app`
+     `graphql`
+     `tailwindcss`
+     `react-typed --force`
 
  You may need to cd separatelly into your client and server folder and run npm i  as well.
 
@@ -84,16 +84,16 @@ We would like to say Thanks to the continuous help of the teacher, TAs and tutor
 
 GIFTLAB incorporates all the features of a professional website:
 
-    - Search for an item by name in the search bar
-    - Create an account and Login if the account already exists
-    - Select a product and see a full description of it open up
-    - Add an item to cart
-    - Adjust quantities in the cart and it will update the purchase order
-    - View cart 
-    - Submit the purchase with a confirmation
-    - Order History on the profile page
-    - Logout or Continue shopping
-    - Thank you for your purchase end of shopping experience
+- Search for an item by name in the search bar
+- Create an account and Login if the account already exists
+- Celect a product and see a full description of it open up
+- Add an item to cart
+- Adjust quantities in the cart and it will update the purchase order
+- View cart 
+- Submit the purchase with a confirmation
+- Order History on the profile page
+- Logout or Continue shopping
+- Thank you for your purchase end of shopping experience
 
 When you log out and log in again your previous purchase history will be stored and will be presented in your profile. 
 
