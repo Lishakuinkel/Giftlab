@@ -10,6 +10,10 @@ import Cart from "../../pages/cart/Cart";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { motion } from "framer-motion";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 //device responsive
 const responsive = {
   superLargeDesktop: {
@@ -35,6 +39,14 @@ const responsive = {
 //   console.log(`Added ${product.name} to the cart`);
 //   console.log(product);
 // }
+
+const showToastMessage = () => {
+  toast.success('Added to Cart', {
+    position: toast.POSITION.TOP_RIGHT
+  });
+};
+
+
 
 function ProductList({ filter }) {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
@@ -75,6 +87,8 @@ function ProductList({ filter }) {
     // }
 
     addToCart(product);
+    showToastMessage();
+    
   };
   console.log(cart);
 
