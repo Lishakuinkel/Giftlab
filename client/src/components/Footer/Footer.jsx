@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className='text-center'> 
             <div className='bg-[#577c72] w-full mx-auto py-1 px-2 grid lg:grid-cols-3 text-gray-300 '>
-            <p > ©2023  Giftlab</p>
+            <p> ©2023 GIFTLAB created by Anna, Suzy, Lisha  & Aleena</p>
             <div>
                 <ul className='flex justify-between mx-auto w-[75%] py-4'>
                     <li><a href="https://www.facebook.com/"><FacebookLogo size={30} /></a></li>
