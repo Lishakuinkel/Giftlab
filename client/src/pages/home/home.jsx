@@ -3,6 +3,7 @@ import Typed from "react-typed";
 import Searchbar from "./searchbar";
 
 import Products from "../../components/ProductList/Products";
+import Footer from '../../components/Footer/Footer';
 
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
         
         <Products filter={searchFilter} />
       </div>
+      <Footer />
     </div>
   )
 }
