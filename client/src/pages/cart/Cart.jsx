@@ -1,9 +1,12 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import { useCartContext } from '../../utils/cartContext';
 import { useMutation } from '@apollo/client';
 import "./cart.css";
+// import Checkout from '../checkout/Checkout'
 
 import { ADD_ORDER } from '../../utils/mutations';
+
 
 const Cart = () => {
   const { cart, totalAmount, addToCart, removeCart } = useCartContext();
@@ -26,7 +29,7 @@ const Cart = () => {
     }
   }
 
-  return (
+return (
     <div>
       <h2>Shopping Cart</h2>
       <ul>

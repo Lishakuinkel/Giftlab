@@ -23,15 +23,14 @@ const OrderHistory = () => {
 //   const orders = data ? data.user.orders : null;
 
   return (
-    <div class="table-responsive pb-5">
-      <div class="order">
-        Order History
-        <div class="logout">
-          <button class="button1">logout</button>
-        </div>
+    <>
+      <div class="logout">
+        <button class="button1">logout</button>
       </div>
-      <div class="table">
-        <table id="tb" class="border ps-table w-100 mb-3 tb1 border-1">
+      <div class="pb-5 flex flex-col items-center">
+        <div class="order">Order History</div>
+
+        <table id="tb" class="border border-1">
           <thead>
             <tr>
               <th class="font-weight-bold py-2 border-1">Order</th>
@@ -60,7 +59,7 @@ const OrderHistory = () => {
             : ""}
         </table>
       </div>
-    </div>
+    </>
   );
 }
 
