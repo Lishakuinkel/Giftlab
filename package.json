@@ -6,6 +6,9 @@
     "graphql": "^16.8.1",
     "react-typed": "^1.2.0"
   },
+  "engines": {
+    "node": "16.16.0"
+  },
   "name": "giftlab",
   "description": "",
   "version": "1.0.0",
