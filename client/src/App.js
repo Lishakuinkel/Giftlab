@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   ApolloClient,
   ApolloProvider,
@@ -12,10 +14,12 @@ import Cart from "./pages/cart/Cart";
 import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
 import Profile from "./pages/profile/profile";
+import Checkout from "./pages/checkout/Checkout";
+import OrderConfirmation from "./pages/order-confirmation/orderConfirmation"
 
 import { CartProvider } from './utils/cartContext'; 
 import { setContext } from "@apollo/client/link/context";
-import SingleProduct from "./pages/singleProduct/singleProduct";
+// import SingleProduct from "./pages/singleProduct/singleProduct";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -50,12 +54,15 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/product/:id" element={<SingleProduct />} />
+              {/* <Route path="/product/:id" element={<SingleProduct />} /> */}
               <Route path="/cart" element={<Cart />} />
-              {/* <Route path='/logout' element={<Logout />} /> */}
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/order-confirmation" element={<OrderConfirmation />} />
+             
             </Routes>
           </Router>
         </div>
+        <ToastContainer />
       </div>
       </CartProvider>
     </ApolloProvider>

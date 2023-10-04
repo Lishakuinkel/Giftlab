@@ -41,6 +41,11 @@ Together as a group we conceived and executed a design that solves an e-commerce
 
 
 
+https://github.com/Lishakuinkel/Giftlab/assets/126618768/2ef42835-e8cd-4766-9fca-1986fac84e48
+
+
+
+
 ## Technologies Used
 
 This application is powered by Webpack (HTML-Webpack-Plugin, Babel, and CSS Loader), Node.js (v16.19.1), Express.js (v.14.17.1), and JavaScript. Nodemon (v2.0.4) and Concurrently (v5.2.0) were utilized as a devDependencies allowing the server to refresh when edits were made to application, and allowing both the front end and back end to be ran on a single command (npm run start:dev).

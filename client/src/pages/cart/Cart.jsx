@@ -1,84 +1,95 @@
-import React from 'react'
-import { useCartContext } from '../../utils/cartContext';
+import React from "react";
+import { useCartContext } from "../../utils/cartContext";
+import { useMutation } from "@apollo/client";
 import "./cart.css";
+// import Checkout from '../checkout/Checkout'
+
+import { ADD_ORDER } from '../../utils/mutations';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const { cart, addToCart } = useCartContext();
-  
-  console.log(cart);
+  const { cart, totalAmount, addToCart, removeCart } = useCartContext();
 
+  const [addOrder] = useMutation(ADD_ORDER);
+  const navigate = useNavigate();
 
+  console.log("cart", cart);
 
+  const checkout = async () => {
+    try {
+      const productsIds = cart.map((item) => item.product._id);
+      localStorage.setItem("product", productsIds);
+      localStorage.setItem("totalAmount:", totalAmount);
+      console.log("productsIds:", productsIds);
+      console.log("totalAmount:", totalAmount);
+      const { data } = await addOrder({
+        variables: { products: productsIds, total_price: totalAmount },
+      });
+      navigate("/checkout");
+      console.log("graphql response:", data);
+    } catch (error) {
+      alert("Please sign in before checkout");
+      navigate("/login");
+      console.log("graphql error:", error);
+    }
+  };
 
-
-
-
-
-
-
-
-  return (
-    <div>
-      <h2>Your Shopping Cart</h2>
-      <ul>
-        {cart.map((product) => (
-          <li key={product.id} className="card">
-            <div className="cart">
-              <img className="image" src={product.image} alt={product.name} style={{ width: '100px', height: '100px' }} />
-            </div>
-            <div>
-              <h3>{product.name}</h3>
-              <p>{product.description}</p>
-              <p className="price">{product.price}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <button className="checkout">Checkout</button>
+return (
+    <div className="cart-container">
+      <h2 className="cart-header">Your Shopping Cart</h2>
+      {/* Check if the cart is empty and render a message */}
+      {cart.length === 0 ? (
+        <>
+          <p className='font-sans text-[#c77783] text-2xl'>Your cart is empty!
+            <span className="ml-2">
+            <span className="inline-block align-middle mr-2" role="img" aria-label="Pointer Finger">👉</span>
+              <a href="/"><button className='bg-[#d7c2d8] rounded-md p-1'>Click to Start Shopping!</button></a>
+            </span>
+          </p>
+        </>
+      ) : (
+        <>
+      <div className="cart-items-container"> 
+        <table className="cart-table">
+          <thead>
+            <tr>
+              <th><Link to="/">Continue Shopping</Link></th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cart.map((item) => (
+              <tr className="cart-item" key={item.product._id}>
+                <td>
+                <img className="image" src={item.product.image} alt="image" />
+                </td>
+                <td className="cart-item-description">{item.product.name}</td>
+                <td className="cart-item-price">${item.product.price}</td>
+                <td className="cart-item-quantity">
+                  <div className="cart-item-quantity-buttons">
+                    <button onClick={() => removeCart(item.product._id)}>-</button>
+                    <span>{item.quantity}</span>
+                    <button onClick={() => addToCart(item.product)}>+</button>
+                  </div>
+                </td>
+                <td className="cart-item-total">${(item.product.price * item.quantity).toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="cart-total-container"> 
+        <p className="cart-total">SUBTOTAL: ${totalAmount.toFixed(2)}</p>
+        <button className="checkout" onClick={checkout}>PROCEED TO CHECKOUT</button>
+      </div>
+      </>
+      )}
     </div>
   );
 };
 
 export default Cart;
-
-// import React, { useState } from 'react';
-
-// const Cart = () => {
-//   // Initialize cart state as an empty array
-//   const [cart, setCart] = useState([]);
-
-//   // Function to add a product to the cart
-//   const addToCart = (product) => {
-//     // Check if the product is already in the cart
-//     const productInCart = cart.find((item) => item.id === product.id);
-
-//     if (productInCart) {
-//       // If the product is in the cart, update its quantity
-//       const updatedCart = cart.map((item) =>
-//         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-//       );
-//       setCart(updatedCart);
-//     } else {
-//       // If the product is not in the cart, add it with a quantity of 1
-//       setCart([...cart, { ...product, quantity: 1 }]);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h2>Your Shopping Cart</h2>
-//       <ul>
-//         {cart.map((item) => (
-//           <li key={item.id}>
-//             {item.name} - Quantity: {item.quantity}
-//           </li>
-//         ))}
-//       </ul>
-//       <button onClick={() => addToCart()}>
-//         Add to Cart
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default Cart;

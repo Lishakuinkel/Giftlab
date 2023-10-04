@@ -21,3 +21,21 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_ORDER = gql`
+  mutation addOrder($products: [ID]!, $total_price: Float) {
+    addOrder(products: $products, total_price: $total_price) {
+      purchaseDate
+      products {
+        _id
+        name
+        description
+        price
+        quantity
+        category {
+          name
+        }
+      }
+    }
+  }
+`

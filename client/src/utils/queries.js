@@ -94,6 +94,7 @@ export const QUERY_ORDER = gql`
       orders {
         _id
         purchaseDate
+        total_price
         products {
           _id
           name

@@ -45,7 +45,7 @@ type Order {
   _id: ID
   purchaseDate: String
   products: [Product]
-  total_price: Int
+  total_price: Float
   user: String
 }
 
@@ -65,7 +65,7 @@ type Query {
 
 type Mutation {
   addUser(username: String!, email: String!, password: String!): Auth
-  addOrder(products: [ID]!): Order
+  addOrder(products: [ID]!, total_price: Float): Order
   updateUser(username: String, email: String, password: String): User
   updateProduct(_id: ID!, quantity: Int!): Product
   login(email: String!, password: String!): Auth

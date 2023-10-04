@@ -169,14 +169,48 @@ const resolvers = {
 
       return { token, user };
     },
-    addOrder: async (parent, { products }, context) => {
-      console.log(context);
+    // addOrder: async (parent, { products }, context) => {
+    //   console.log(context);
+    //   if (context.user) {
+    //     const order = new Order({ products });
+    //     await User.findByIdAndUpdate(context.user._id, {
+    //       $push: { orders: order },
+    //     });
+    //     return order;
+    //   }
+    // },
+    addOrder: async (parent, { products, total_price }, context) => {
+      console.log("Products:", products);
       if (context.user) {
-        const order = new Order({ products });
-        await User.findByIdAndUpdate(context.user._id, {
-          $push: { orders: order },
+        const purchaseDate = new Date().toLocaleDateString(); // Get the current date
+        console.log("purchaseDate:", purchaseDate);
+        const userId = context.user._id; // Get the user ID from the context
+    
+        // Create the order
+        const order = new Order({
+          purchaseDate,
+          products,
+          total_price,
+          user: userId, // Assign the user ID
         });
-        return order;
+    
+        try {
+          // Save the order to the database
+          await order.save();
+    
+          // Update the user's orders
+          await User.findByIdAndUpdate(userId, {
+            $push: { orders: order },
+          });
+    
+          return order;
+        } catch (error) {
+          // Handle any errors that occur during order creation or database operations
+          console.error('Error creating order:', error);
+          throw new Error('Unable to create the order.');
+        }
+      } else {
+        throw new Error('Authentication required to create an order.');
       }
     },
     updateProduct: async (parent, { _id, quantity }) => {
