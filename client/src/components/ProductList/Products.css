@@ -1,10 +1,11 @@
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(8, 8, 8, 0.2);
     max-width: 230px;
     margin: auto;
     text-align: center;
     font-family: sans-serif;
-    margin-top: 20px;    
+    margin-top: 20px;
+     
   }
   
   .price {
@@ -31,10 +32,13 @@
     width: 100%;
     font-size: 14px;
     justify-content: space-around;
-    
+     
   }
   
   .card button:hover {
     opacity: 0.9;
   }
 
+  .card:hover {
+    transform: scale(1.1);
+  }
