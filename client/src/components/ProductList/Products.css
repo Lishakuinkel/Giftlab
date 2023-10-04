@@ -34,7 +34,7 @@
     color: white;
     background-color: #9c6363;
     cursor: pointer;
-    width: 50%;
+    max-width: 230px;
     font-size: 14px;
     align-items: center;
     justify-content: space-evenly;
