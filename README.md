@@ -1,6 +1,6 @@
-# Giftlab
+# GIFTLAB
 
-GiftLab is a fully functioning MERN Full-Stack Web Application 
+GIFTLAB is a fully functioning MERN Full-Stack Web Application 
 
 We're your one-stop destination for unique and delightful gifts that add a touch of magic to every occasion.
 
@@ -40,7 +40,9 @@ Together as a group we conceived and executed a design that solves an e-commerce
 ## Live URL
 
 
+
 https://github.com/Lishakuinkel/Giftlab/assets/126618768/2ef42835-e8cd-4766-9fca-1986fac84e48
+
 
 
 
