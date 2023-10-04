@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { cart, totalAmount, addToCart, removeCart } = useCartContext();
+  
   const [addOrder] = useMutation(ADD_ORDER);
   const navigate = useNavigate();
 
