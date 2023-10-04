@@ -1,6 +1,8 @@
 # Giftlab
 
-GiftLab is a fully functioning full stack web application 
+GiftLab is a fully functioning MERN Full-Stack Web Application 
+
+We're your one-stop destination for unique and delightful gifts that add a touch of magic to every occasion.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
@@ -20,13 +22,9 @@ GiftLab is a fully functioning full stack web application
 
 - [Features](#features)
 
-- [Usage-Information](#usage-information)
-
 - [Suggested-Future-Development](#suggested-future-development)
 
-- [Contribution-Guidelines](#contribution-guidelines)
-
-- [Test-Instructions](#test-instructions)
+- [Contributions](#contributions)
 
 - [License](#license)
 
@@ -43,7 +41,7 @@ Together as a group we conceived and executed a design that solves an e-commerce
 
 
 
-## Screenshots
+<video src="Giftlab.mp4" controls title="Title"></video>
 
 
 
@@ -70,10 +68,10 @@ This application is powered by Webpack (HTML-Webpack-Plugin, Babel, and CSS Load
 
 You may download the repository or clone it with git clone ssh key. 
 The operation of this code will require npm install packages by running npm i in your main terminal:
-    - create-react-app
-    - graphql
-    - tailwindcss
-    - react-typed --force
+    - `create-react-app`
+    - `graphql`
+    - `tailwindcss`
+    - `react-typed --force`
 
  You may need to cd separatelly into your client and server folder and run npm i  as well.
 
@@ -111,7 +109,7 @@ Our priority is to design a smooth shopping experience and we would like to furt
     - Wish list Confirmation for shipping
     - Integrate it with automatic email system for promotions and communication (mailchimp)
 
-## Contribution Guidelines
+## Contributions
 
 GiflLab app was created in collaboration Aleena Brinkerhoff, Lisha Kuinkel, Suzy Han and Anna Gallagher for the University of Utah EDX Full Stack Bootcamp Final Project.
 ![edX](https://img.shields.io/badge/edX-%2302262B.svg?style=for-the-badge&logo=edX&logoColor=white)
