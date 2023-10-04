@@ -92,22 +92,30 @@ function ProductList({ filter }) {
 
   return (
     <div className="py-12">
-      <Carousel responsive={responsive}>
+      <Carousel className="Carousel" responsive={responsive}>
         {products?.map((product, i) => {
           return (
-            <motion.div onClick={() => setIsOpen(!isOpen)} className="card">
-              <img className="image" src={product.image} alt="image" />
-              <motion.h2>{product.name}</motion.h2>
-              {isOpen && (
-                <motion.div>
-                  <p>{product.description}</p>
-                  <p className="price">${product.price}</p>
-                </motion.div>
-              )}
-              <button onClick={() => handleAddToCart(product)}>
+            <div className="outerCard">
+              <motion.div onClick={() => setIsOpen(!isOpen)} className="card">
+                <img className="image" src={product.image} alt="image" />
+                <motion.h2>{product.name}</motion.h2>
+                {isOpen && (
+                  <motion.div>
+                    <p>{product.description}</p>
+                    <p className="price">${product.price}</p>
+                  </motion.div>
+                )}
+                {/* <button onClick={() => handleAddToCart(product)}>
+                <ShoppingCart size={30} /> Add to Cart{" "}
+              </button> */}
+              </motion.div>
+              <button
+                className="addButton"
+                onClick={() => handleAddToCart(product)}
+              >
                 <ShoppingCart size={30} /> Add to Cart{" "}
               </button>
-            </motion.div>
+            </div>
           );
         })}
       </Carousel>
