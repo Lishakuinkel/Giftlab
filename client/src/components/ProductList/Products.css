@@ -19,19 +19,25 @@
     object-fit: cover;
   }
 
-  .card button {
+  button.addButton {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .addButton {
     display: flex;
     border: none;
     outline: 0;
-    margin-top: 8px;
+    margin-top: 20px;
     padding: 5px;
     color: white;
     background-color: #9c6363;
-    align-items: center;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
     font-size: 14px;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-evenly;
      
   }
   
@@ -41,4 +47,13 @@
 
   .card:hover {
     transform: scale(1.1);
+    cursor: pointer;
   }
+
+  .outerCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
