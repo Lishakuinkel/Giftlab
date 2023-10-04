@@ -3,16 +3,24 @@ import { useQuery } from "@apollo/client";
 import "./OrderHistory.css";
 import { QUERY_ORDER } from "../../utils/queries";
 
-function OrderHistory() {
-  // const orderHistory=[
-  //   // order:
-  //   // date:
-  //   // price:
-  // ]
+const OrderHistory = () => {
+  const { loading, error, data } = useQuery(QUERY_ORDER);
 
-  // TODO: Use the useQuery hook from apollo to get order history data from the back-end
-  const { data, loading } = useQuery(QUERY_ORDER);
-  const orders = data ? data.user.orders : null;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const orders = data.user.orders;
+
+// function OrderHistory() {
+//   // const orderHistory=[
+//   //   // order:
+//   //   // date:
+//   //   // price:
+//   // ]
+
+//   // TODO: Use the useQuery hook from apollo to get order history data from the back-end
+//   const { data, loading } = useQuery(QUERY_ORDER);
+//   const orders = data ? data.user.orders : null;
 
   return (
     <div class="table-responsive pb-5">
@@ -38,16 +46,15 @@ function OrderHistory() {
           {/* map of the ofder history info from function above */}
           {orders
             ? orders.map((order) => (
-                <tr>
+                <tr key={order._id}>
                   <td>
-                    {order.products.map((product) => product.name).join(", ")}
+                    {order._id}
+                    {/* {order.products.map((product) => product.name).join(", ")} */}
                   </td>
                   <td>
-                    {new Date(
-                      Date.parse(Number(order.purchaseDate))
-                    ).toString()}
+                    {new Date(order.purchaseDate).toLocaleDateString()}
                   </td>
-                  <td></td>
+                  <td>{order.total_price !== undefined ? `$${order.total_price.toFixed(2)}` : ''}</td>
                 </tr>
               ))
             : ""}
