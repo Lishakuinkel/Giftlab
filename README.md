@@ -40,11 +40,6 @@ Together as a group we conceived and executed a design that solves an e-commerce
 ## Live URL
 
 
-
-<video src="./Giftlab.mp4" controls title="Title"></video>
-
-
-
 https://github.com/Lishakuinkel/Giftlab/assets/126618768/2ef42835-e8cd-4766-9fca-1986fac84e48
 
 
