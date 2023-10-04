@@ -10,9 +10,8 @@ import Cart from "../../pages/cart/Cart";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { motion } from "framer-motion";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //device responsive
 const responsive = {
@@ -41,12 +40,10 @@ const responsive = {
 // }
 
 const showToastMessage = () => {
-  toast.success('Added to Cart', {
-    position: toast.POSITION.TOP_RIGHT
+  toast.success("Added to Cart", {
+    position: toast.POSITION.TOP_RIGHT,
   });
 };
-
-
 
 function ProductList({ filter }) {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
@@ -88,7 +85,6 @@ function ProductList({ filter }) {
 
     addToCart(product);
     showToastMessage();
-    
   };
   console.log(cart);
 
@@ -108,11 +104,9 @@ function ProductList({ filter }) {
                   <p className="price">${product.price}</p>
                 </motion.div>
               )}
-              <p>
-                <button onClick={() => handleAddToCart(product)}>
-                  <ShoppingCart size={30} /> Add to Cart{" "}
-                </button>
-              </p>
+              <button onClick={() => handleAddToCart(product)}>
+                <ShoppingCart size={30} /> Add to Cart{" "}
+              </button>
             </motion.div>
           );
         })}

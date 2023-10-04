@@ -14,26 +14,31 @@ const OrderHistory = () => {
 
   console.log("order: ", orders);
 
-  const handleSubmit = async (e)  =>{
+  const logout = (e) => {
     e.preventDefault();
-    alert('You have logged out. Please sign in to continue');
+    localStorage.removeItem("id_token");
+    alert("You have logged out. Please sign in to continue");
     navigate("/login");
-  }
+  };
 
   return (
     <>
-      <div class="logout">
-        <button class="button1" handleSubmit={handleSubmit}>Logout</button>
+      <div className="logout">
+        <button className="button1" onClick={logout}>
+          Logout
+        </button>
       </div>
       <div class="pb-5 flex flex-col items-center">
         <div class="order">Order History</div>
 
-        <table id="tb" class="border border-1">
+        <table id="tb" className="border border-1">
           <thead>
             <tr>
-              <th class="font-weight-bold py-2 border-1">Order number</th>
-              <th class="font-weight-bold py-2 border-1 quantity">Purchased Date</th>
-              <th class="font-weight-bold py-2 border-1 ">Total</th>
+              <th className="font-weight-bold py-2 border-1">Order number</th>
+              <th className="font-weight-bold py-2 border-1 quantity">
+                Purchased Date
+              </th>
+              <th className="font-weight-bold py-2 border-1 ">Total</th>
             </tr>
           </thead>
 
@@ -48,7 +53,11 @@ const OrderHistory = () => {
                   <td>
                     {new Date(Number(order.purchaseDate)).toLocaleDateString()}
                   </td>
-                  <td>{order.total_price !== undefined ? `$${order.total_price.toFixed(2)}` : ''}</td>
+                  <td>
+                    {order.total_price !== undefined
+                      ? `$${order.total_price.toFixed(2)}`
+                      : ""}
+                  </td>
                 </tr>
               ))
             : ""}
@@ -56,6 +65,6 @@ const OrderHistory = () => {
       </div>
     </>
   );
-}
+};
 
 export default OrderHistory;
