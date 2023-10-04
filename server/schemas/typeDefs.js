@@ -58,7 +58,8 @@ type Query {
   products(category: ID, name: String): [Product]
   product(_id: ID!): Product
   user: User
-  order(_id: ID!): Order
+  order(userId: ID): [Order] 
+  # This is a comment.
   checkout(products: [ProductInput]): Checkout
 }
 

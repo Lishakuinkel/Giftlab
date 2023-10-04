@@ -1,19 +1,13 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
-import { useParams, Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { QUERY_PRODUCTS, QUERY_PRODUCT_BY_ID } from "../../utils/queries";
+import { useParams } from "react-router-dom";
+import { QUERY_PRODUCT_BY_ID } from "../../utils/queries";
 
 import { useMemo } from "react";
 function SingleProduct({filter}) {
 
-  const { loading, data } = useQuery(QUERY_PRODUCT_BY_ID);
+  const { loading, data } = useQuery(QUERY_PRODUCT_BY_ID, {
+    variables: { id: id },
+  });
 
   
 
@@ -37,7 +31,7 @@ function SingleProduct({filter}) {
 
   return (
     <>
-    {/* {product.name} */}
+      <div></div>
     </>
   );
 

@@ -87,3 +87,22 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_ORDER = gql`
+  {
+    user {
+      orders {
+        _id
+        purchaseDate
+        products {
+          _id
+          name
+          description
+          price
+          quantity
+          image
+        }
+      }
+    }
+  }
+`;
