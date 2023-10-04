@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-//import ProductItem from '../ProductItem/ProductItem';
 import { useCartContext } from "../../utils/cartContext";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../../utils/queries";
