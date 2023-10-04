@@ -4,8 +4,8 @@
     margin: auto;
     text-align: center;
     font-family: sans-serif;
-    padding-top: 25px;
-    
+    padding-top: 10px;
+   
   }
   
   .price {
@@ -21,11 +21,15 @@
 
   .checkout {
     width: 150px;
-    height: 50px;
-    background-color: rgb(19, 19, 19);
-    color: white;
+    height: 40px;
+    background-color: rgb(52, 46, 63);
+    color: rgb(233, 220, 220);
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     margin: 10px;
     cursor: pointer;
+  }
+
+  .checkout:hover{
+    opacity:80%
   }
