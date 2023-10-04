@@ -1,23 +1,21 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import { useCartContext } from '../../utils/cartContext';
 import "./cart.css";
+// import Checkout from '../checkout/Checkout'
 
 const Cart = () => {
   const { cart, addToCart } = useCartContext();
   
   console.log(cart);
 
+  const navigate = useNavigate();
 
+const handlePageChange = () => {
+  navigate("/checkout");
+}
 
-
-
-
-
-
-
-
-
-  return (
+return (
     <div>
       <h2>Your Shopping Cart</h2>
       <ul>
@@ -34,7 +32,7 @@ const Cart = () => {
           </li>
         ))}
       </ul>
-      <button className="checkout">Checkout</button>
+      <button className="checkout" onClick ={handlePageChange} >Checkout</button>
     </div>
   );
 };
