@@ -1,6 +1,6 @@
-import React from 'react'
-import { useCartContext } from '../../utils/cartContext';
-import { useMutation } from '@apollo/client';
+import React from "react";
+import { useCartContext } from "../../utils/cartContext";
+import { useMutation } from "@apollo/client";
 import "./cart.css";
 // import Checkout from '../checkout/Checkout'
 
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { cart, totalAmount, addToCart, removeCart } = useCartContext();
-  
+
   const [addOrder] = useMutation(ADD_ORDER);
   const navigate = useNavigate();
 
@@ -18,20 +18,22 @@ const Cart = () => {
 
   const checkout = async () => {
     try {
-      const productsIds = cart.map((item) => item.product._id)
+      const productsIds = cart.map((item) => item.product._id);
+      localStorage.setItem("product", productsIds);
+      localStorage.setItem("totalAmount:", totalAmount);
       console.log("productsIds:", productsIds);
       console.log("totalAmount:", totalAmount);
       const { data } = await addOrder({
-        variables: { products: productsIds, total_price: totalAmount }
-
-      })
-
-      navigate("/checkout")
-      console.log('graphql response:', data);
+        variables: { products: productsIds, total_price: totalAmount },
+      });
+      navigate("/checkout");
+      console.log("graphql response:", data);
     } catch (error) {
-      console.log('graphql error:', error);
+      alert("Please sign in before checkout");
+      navigate("/login");
+      console.log("graphql error:", error);
     }
-  }
+  };
 
 return (
     <div className="cart-container">
