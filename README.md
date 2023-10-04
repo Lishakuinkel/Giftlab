@@ -41,7 +41,7 @@ Together as a group we conceived and executed a design that solves an e-commerce
 
 
 
-<video src="Giftlab.mp4" controls title="Title"></video>
+<video src="./Giftlab.mp4" controls title="Title"></video>
 
 
 
