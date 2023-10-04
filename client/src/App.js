@@ -14,7 +14,8 @@ import Cart from "./pages/cart/Cart";
 import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
 import Profile from "./pages/profile/profile";
-import Checkout from "./pages/checkout/Checkout"
+import Checkout from "./pages/checkout/Checkout";
+import OrderConfirmation from "./pages/order-confirmation/orderConfirmation"
 
 import { CartProvider } from './utils/cartContext'; 
 import { setContext } from "@apollo/client/link/context";
@@ -56,6 +57,7 @@ function App() {
               {/* <Route path="/product/:id" element={<SingleProduct />} /> */}
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/order-confirmation" element={<OrderConfirmation />} />
              
             </Routes>
           </Router>
