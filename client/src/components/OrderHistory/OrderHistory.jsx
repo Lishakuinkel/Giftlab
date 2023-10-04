@@ -22,6 +22,8 @@ const OrderHistory = () => {
 //   const { data, loading } = useQuery(QUERY_ORDER);
 //   const orders = data ? data.user.orders : null;
 
+  console.log("order: ", orders);
+
   return (
     <>
       <div class="logout">
@@ -51,7 +53,7 @@ const OrderHistory = () => {
                     {/* {order.products.map((product) => product.name).join(", ")} */}
                   </td>
                   <td>
-                    {new Date(order.purchaseDate).toLocaleDateString()}
+                    {new Date(Number(order.purchaseDate)).toLocaleDateString()}
                   </td>
                   <td>{order.total_price !== undefined ? `$${order.total_price.toFixed(2)}` : ''}</td>
                 </tr>
