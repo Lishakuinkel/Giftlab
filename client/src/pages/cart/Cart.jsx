@@ -1,16 +1,17 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
 import { useCartContext } from '../../utils/cartContext';
 import { useMutation } from '@apollo/client';
 import "./cart.css";
 // import Checkout from '../checkout/Checkout'
 
 import { ADD_ORDER } from '../../utils/mutations';
+import { useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
   const { cart, totalAmount, addToCart, removeCart } = useCartContext();
   const [addOrder] = useMutation(ADD_ORDER);
+  const navigate = useNavigate();
   
   console.log("cart", cart);
 
@@ -23,6 +24,8 @@ const Cart = () => {
         variables: {products: productsIds, total_price: totalAmount}
        
       })
+
+      navigate("/checkout")
       console.log('graphql response:', data);
     } catch (error) {
       console.log('graphql error:', error);
