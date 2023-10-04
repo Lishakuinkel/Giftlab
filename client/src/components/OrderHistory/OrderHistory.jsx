@@ -2,32 +2,28 @@
 import { useQuery } from "@apollo/client";
 import "./OrderHistory.css";
 import { QUERY_ORDER } from "../../utils/queries";
+import { useNavigate } from "react-router-dom";
 
 const OrderHistory = () => {
   const { loading, error, data } = useQuery(QUERY_ORDER);
-
+  const navigate = useNavigate();
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   const orders = data.user.orders;
 
-// function OrderHistory() {
-//   // const orderHistory=[
-//   //   // order:
-//   //   // date:
-//   //   // price:
-//   // ]
-
-//   // TODO: Use the useQuery hook from apollo to get order history data from the back-end
-//   const { data, loading } = useQuery(QUERY_ORDER);
-//   const orders = data ? data.user.orders : null;
-
   console.log("order: ", orders);
+
+  const handleSubmit = async (e)  =>{
+    e.preventDefault();
+    alert('You have logged out. Please sign in to continue');
+    navigate("/login");
+  }
 
   return (
     <>
       <div class="logout">
-        <button class="button1">logout</button>
+        <button class="button1" handleSubmit={handleSubmit}>Logout</button>
       </div>
       <div class="pb-5 flex flex-col items-center">
         <div class="order">Order History</div>
@@ -35,16 +31,13 @@ const OrderHistory = () => {
         <table id="tb" class="border border-1">
           <thead>
             <tr>
-              <th class="font-weight-bold py-2 border-1">Order</th>
-              <th class="font-weight-bold py-2 border-1 quantity">Date</th>
-              {/* <th class="font-weight-bold py-2 border-1 ">
-                Fulfillment Status
-              </th> */}
+              <th class="font-weight-bold py-2 border-1">Order number</th>
+              <th class="font-weight-bold py-2 border-1 quantity">Purchased Date</th>
               <th class="font-weight-bold py-2 border-1 ">Total</th>
             </tr>
           </thead>
 
-          {/* map of the ofder history info from function above */}
+          {/* map of the order history info from function above */}
           {orders
             ? orders.map((order) => (
                 <tr key={order._id}>
