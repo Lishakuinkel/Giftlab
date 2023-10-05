@@ -38,7 +38,7 @@ Together as a group we conceived and executed a design that solves an e-commerce
 
 
 ## Live URL
-
+https://giftlab-123-610fac927377.herokuapp.com/
 
 
 https://github.com/Lishakuinkel/Giftlab/assets/126618768/2ef42835-e8cd-4766-9fca-1986fac84e48
