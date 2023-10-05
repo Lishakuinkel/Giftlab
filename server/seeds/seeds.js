@@ -265,7 +265,7 @@ db.once('open', async () => {
       description:
         'Take your music on the go with this Portable Bluetooth Speaker, designed for exceptional audio quality and portability.',
       image: 'speaker.png',
-      price: 38.00,
+      price: 100.00,
       quantity: 100
     },
     {
