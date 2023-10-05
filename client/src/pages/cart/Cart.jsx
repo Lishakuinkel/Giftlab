@@ -82,7 +82,7 @@ return (
           </tbody>
         </table>
       </div>
-      <div className="cart-total-container"> 
+      <div className="cart-summary"> 
         <p className="cart-total">SUBTOTAL: ${totalAmount.toFixed(2)}</p>
         <button className="checkout" onClick={checkout}>PROCEED TO CHECKOUT</button>
       </div>
