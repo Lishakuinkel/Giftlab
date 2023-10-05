@@ -240,9 +240,52 @@ db.once('open', async () => {
       image: 'shirt.webp',
       price: 38.00,
       quantity: 100
+    },
+    {
+      name: 'Tech Kit Organizer',
+      category: categories[0]._id,
+      description:
+        'A stylish, compact organizer featuring multiple compartments, pockets, and elastic loops to keep your electronic essentials neatly organized and within reach.',
+      image: 'tech-kit.png',
+      price: 30.00,
+      quantity: 100
+    },
+    {
+      name: 'Birth Month Candle',
+      category: categories[0]._id,
+      description:
+        'A thoughtful and aromatic gift to celebrate a birthday, each candle crafted with care, a beautifully designed label, and infused with a fragrance that captures the essence of the birth month.',
+      image: 'bdaycandle.png',
+      price: 25.99,
+      quantity: 100
+    },
+    {
+      name: 'Portable Bluetooth Speaker',
+      category: categories[0]._id,
+      description:
+        'Take your music on the go with this Portable Bluetooth Speaker, designed for exceptional audio quality and portability.',
+      image: 'speaker.png',
+      price: 38.00,
+      quantity: 100
+    },
+    {
+      name: 'Wireless Charging Station',
+      category: categories[0]._id,
+      description:
+        'Designed to simplify your daily charging needs and keep your devices powered up effortlessly, equipped with multiple charging pads to streamline your charging routine.',
+      image: 'wirelesscharging.png',
+      price: 35.99,
+      quantity: 100
+    },
+    {
+      name: 'Birthday Cake Toppers',
+      category: categories[0]._id,
+      description:
+        'Delightful decorations as the perfect finishing touch to your birthday cake, adding a touch of elegance and festivity to the occasion, crafted from food-safe and non-toxic materials.',
+      image: 'bdaycaketop.png',
+      price: 5.99,
+      quantity: 100
     }
-     
-
   ]);
 
   console.log('products seeded');
