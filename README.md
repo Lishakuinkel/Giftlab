@@ -69,6 +69,7 @@ This application is powered by Webpack (HTML-Webpack-Plugin, Babel, and CSS Load
 
 You may download the repository or clone it with git clone ssh key. 
 The operation of this code will require npm install packages by running npm i in your main terminal:
+
     `create-react-app`
      `graphql`
      `tailwindcss`
@@ -95,6 +96,7 @@ GIFTLAB incorporates all the features of a professional website:
 - Order History on the profile page
 - Logout or Continue shopping
 - Thank you for your purchase end of shopping experience
+
 
 When you log out and log in again your previous purchase history will be stored and will be presented in your profile. 
 
